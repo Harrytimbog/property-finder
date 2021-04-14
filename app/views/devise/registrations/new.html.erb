@@ -1,0 +1,29 @@
+<section class="form-auth container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <h2 class="h3 mb-3 fw-normal text-center">Sign up</h2>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "firstname", class: "form-control mt-2", id: "inputFirstname", placeholder: "First name" %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "lastname", class: "form-control mt-2", id: "inputLastname", placeholder: "Last name" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mt-2", id: "inputEmail", placeholder: "Email address" %>
+
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control", id: "inputPassword" %>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary mt-2" type="submit">Sign up</button>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</section>
