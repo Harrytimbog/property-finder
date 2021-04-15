@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[show edit update destroy]
   before_action :authenticate_account!, only: %i[new create destroy]
+  before_action :set_sidebar, except: [:show]
 
   # GET /properties or /properties.json
   def index
@@ -9,6 +10,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1 or /properties/1.json
   def show
+    @agent = @property.account
   end
 
   # GET /properties/new
@@ -59,6 +61,10 @@ class PropertiesController < ApplicationController
   end
 
   private
+    def set_sidebar
+      @show_sidebar = true
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_property
       @property = Property.find(params[:id])
@@ -66,6 +72,6 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:name, :address, :price, :room, :bathrooms, :photo, :photo_cache)
+      params.require(:property).permit(:name, :address, :price, :room, :bathrooms, :photo)
     end
 end
