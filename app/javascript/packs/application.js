@@ -13,6 +13,8 @@ global.$ = global.jQuery = jQuery
 window.$ = window.jQuery = jQuery
 
 import "bootstrap";
+import "@fortawesome/fontawesome-free/js/all";
+
 import { showDetails } from "./includes/properties";
 
 // Uncomment to copy all static images under ../images to the output folder and reference
