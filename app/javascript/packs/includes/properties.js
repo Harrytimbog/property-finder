@@ -12,6 +12,15 @@ const showDetails = () => {
   });
 };
 
-export { showDetails };
+const showTelephone = () => {
+  $(function(){
+    $("#show-tel").on("click", function(){
+      var $this = $(this);
+      $this.text( $this.data("telephone"));
+    });
+  });
+};
+
+export { showDetails, showTelephone };
 
 
