@@ -62,17 +62,20 @@ class PropertiesController < ApplicationController
   end
 
   private
-    def set_sidebar
-      @show_sidebar = true
-    end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property
-      @property = Property.find(params[:id])
-    end
+  def set_sidebar
+    @show_sidebar = true
+  end
 
-    # Only allow a list of trusted parameters through.
-    def property_params
-      params.require(:property).permit(:name, :address, :price, :rooms, :bathrooms, :parking_spaces, :details, :photo)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_property
+    @property = Property.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def property_params
+    params.require(:property).permit(
+      :name, :address, :price, :rooms, :bathrooms, :parking_spaces, :details, :for_sale, :available_date, :photo
+    )
+  end
 end
