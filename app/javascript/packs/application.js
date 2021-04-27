@@ -14,6 +14,7 @@ window.$ = window.jQuery = jQuery
 
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
+import { initAutocomplete } from '..plugins/init_autocomplete';
 
 import toastr from 'toastr';
 toastr.options = {
@@ -35,6 +36,7 @@ document.addEventListener('turbolinks:load', () => {
   showDetails();
   showTelephone();
   showContactModal();
+  initAutocomplete();
 });
 
 require("trix")
