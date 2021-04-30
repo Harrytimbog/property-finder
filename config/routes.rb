@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboards/index'
+  get 'dashboards/profile'
   devise_for :accounts
   resources :properties
 
