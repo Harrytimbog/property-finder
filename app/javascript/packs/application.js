@@ -14,7 +14,6 @@ window.$ = window.jQuery = jQuery
 
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
-import { initAutocomplete } from '..plugins/init_autocomplete';
 
 import toastr from 'toastr';
 toastr.options = {
@@ -22,7 +21,7 @@ toastr.options = {
 }
 global.toastr = toastr;
 
-import { showDetails, showTelephone, showContactModal } from "./includes/properties";
+import { showDetails, showTelephone, showContactModal, sendMessage } from "./includes/properties";
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -36,7 +35,7 @@ document.addEventListener('turbolinks:load', () => {
   showDetails();
   showTelephone();
   showContactModal();
-  initAutocomplete();
+  sendMessage();
 });
 
 require("trix")
